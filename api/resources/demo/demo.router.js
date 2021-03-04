@@ -1,10 +1,11 @@
 import express from 'express';
+import { checkLogIn } from '../../../helpers/auth.verification';
 import demoController from './demo.controller';
 
 export const demoRouter = express.Router();
 demoRouter.route('/')
 
-    .get(demoController.getDemo)
+    .get(checkLogIn, demoController.getDemo)
 
     .post(demoController.addNewDemo);
  

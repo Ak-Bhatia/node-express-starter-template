@@ -1,7 +1,12 @@
 import { Demo } from './demo.model';
+import path from 'path';
 
 export default {
     getDemo(req, res){
+        // if(!req.isLoggedIn){
+        //     console.log('not logged in');
+        //     return res.json({message:"not logged in"});
+        // }
         Demo.find({}, (err, demo) => {
             if(err){
                 return res.json({success:false,message:err.message});
